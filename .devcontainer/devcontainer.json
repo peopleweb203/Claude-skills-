@@ -1,0 +1,13 @@
+{
+  "name": "APS Skills Library",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "files.insertFinalNewline": true,
+        "files.trimTrailingWhitespace": true,
+        "markdown.preview.breaks": false
+      }
+    }
+  }
+}
