@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-ROOT="$(cd "$(dirname "\${BASH_SOURCE[0]}")/.." && pwd)"
+ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 SOURCE="$ROOT/skills"
 
 usage() {
@@ -13,8 +13,8 @@ Paperclip skills should be imported from this repository using Paperclip's Skill
 EOF
 }
 
-if [[ "\${1:-}" == "--help" || "\${1:-}" == "-h" ]]; then usage; exit 0; fi
-if [[ "\${1:-}" != "--agent" || -z "\${2:-}" ]]; then usage >&2; exit 2; fi
+if [[ "$#" -eq 1 && ( "$1" == "--help" || "$1" == "-h" ) ]]; then usage; exit 0; fi
+if [[ "$#" -ne 2 || "$1" != "--agent" ]]; then usage >&2; exit 2; fi
 AGENT="$2"
 
 copy_to() {
